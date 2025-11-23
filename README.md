@@ -1,5 +1,5 @@
 # Spark Patient Visit Analysis
-* A PySpark-based data processing pipeline that analyzes patient visit records to determine whether each patient meets specific consecutive monthly visit conditions within the last year of the observation period.
+* A PySpark-based data processing pipeline that transform and analyzes patient visit records to determine whether each patient meets specific consecutive monthly visit conditions within the last year of the observation period.
 
 ## Project Purpose
 * Healthcare organizations often need to identify patients who consistently visit clinics over time — for compliance, treatment monitoring, or eligibility checks.
