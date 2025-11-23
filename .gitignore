@@ -1,0 +1,12 @@
+ .DS_Store
+ input/.DS_Store
+ output/.DS_Store
+ __pycache__/
+ input/__pycache__/
+ output/__pycache__/
+ *.pyc
+ input/*.pyc
+ output/*.pyc
+ venv/
+ env/
+ .env   

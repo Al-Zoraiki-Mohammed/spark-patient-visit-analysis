@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  pyspark:
+    build: .
+    container_name: pyspark_job
+    volumes:
+      - ./src:/app/src
+      - ./input:/app/input
+      - ./output:/app/output
+    environment:
+      - PYSPARK_PYTHON=python3
+    command: ["/bin/bash", "/app/entrypoint.sh"]
