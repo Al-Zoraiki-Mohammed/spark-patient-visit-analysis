@@ -1,4 +1,4 @@
-# Spark Patient Visit Analysis
+# Patient Visit Analysis Using Spark
 * A PySpark-based data processing pipeline that transform and analyzes patient visit records to determine whether each patient meets specific consecutive monthly visit conditions within the last year of the observation period.
 
 ## Project Purpose
@@ -15,18 +15,16 @@ These results are output as boolean flags in a final CSV file.
 * The script performs the following steps:
 1. Load patient visit data
    - Each record contains:
-      * effective_from_date
-      * the visit date (MMDDYYYY format)
+      * effective_from_date: the visit date (MMDDYYYY format)
       * patient_id
 2. Convert the visit date to a real date type
-3. Filter visits to the last 365 days
-Everything outside the 1-year window preceding the cutoff date (2016-09-30) is ignored.
+3. Filter visits to the last 365 days( One year)
+    - Everything outside the 1-year window preceding the cutoff date (2016-09-30) is ignored.
 4. Calculate time between consecutive visits
-For each patient, visits are ordered chronologically, and Spark computes:
-    * days_since_last_visit
+    - For each patient, visits are ordered chronologically, and Spark computes: days_since_last_visit
 5. Determine consecutive monthly visits
-A new column classifies whether each visit is consecutive (within ~1 month).
-A running sum is generated to compute streak length.
+    - A new column classifies whether each visit is consecutive (within ~1 month).
+    - A running sum is generated to compute streak length.
 6. Evaluate conditions
     - For each patient
         * 5months	Did the patient have ≥5  consecutive qualified visits?
@@ -37,8 +35,8 @@ A running sum is generated to compute streak length.
         * output/result.csv/
         * Containing: patient_id,5months,9months,11months.
 ## Running the Project with Docker
-1. Build and run: 'docker compose up --build'
-2. After completion: Output is generated in: output/result.csv/. 
+1. Build and run: 'docker compose up --build -d'
+2. After completion: Output is generated in: output/result.csv/ 
     - This folder contains:
         * part-00000...csv — actual result
         * _SUCCESS — Spark job success flag
