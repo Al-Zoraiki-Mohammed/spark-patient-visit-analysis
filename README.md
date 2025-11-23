@@ -11,12 +11,13 @@ This PySpark job processes a raw dataset of patient visits and answers the key q
     * 11 consecutive monthly visits
 These results are output as boolean flags in a final CSV file.
 
-## How the Logic Works (Inference From Script)
+## How the Logic Works?
 * The script performs the following steps:
 1. Load patient visit data
-Each record contains:
-effective_from_date — the visit date (MMDDYYYY format)
-patient_id
+   - Each record contains:
+      * effective_from_date
+      * the visit date (MMDDYYYY format)
+      * patient_id
 2. Convert the visit date to a real date type
 3. Filter visits to the last 365 days
 Everything outside the 1-year window preceding the cutoff date (2016-09-30) is ignored.
